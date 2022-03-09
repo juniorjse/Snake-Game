@@ -7,12 +7,12 @@ vermelho = (255,0,0)
 verde = (0,255,0)
 azul = (0,0,255)
 cinza = (90,90,90)
+
 try:
     print(pygame.init())
 except:
     print("error")
 
-    
 largura = 640
 altura = 520
 tamanho = 10
@@ -48,8 +48,8 @@ def jogo():
     CobraXY = []
     CobraComp = 1
     Score = 0
+    
     while sair:
-       
         while fimdejogo:
             fundo.fill(preto)
             text("GAME OVER",vermelho,50,205,130)
@@ -77,8 +77,8 @@ def jogo():
                         sair = False
                         fimdejogo = False
                         print("apertou para sair")
+                        
         for event in pygame.event.get():
-        #print(event)
             if event.type == pygame.QUIT:
                 sair = False
             if event.type == pygame.KEYDOWN:
@@ -112,13 +112,11 @@ def jogo():
             fundo.fill(preto)
             pos_x += vel_x
             pos_y += vel_y
-
             if pos_x == fruit_x and pos_y == fruit_y:
                 fruit_x = randrange(0,largura - tamanho,10)
                 fruit_y = randrange(0,altura - tamanho - placar,10)
                 CobraComp += 1
                 Score +=10
-
 
             if pos_x < 0 or pos_x + tamanho> largura: 
                 fimdejogo = True
